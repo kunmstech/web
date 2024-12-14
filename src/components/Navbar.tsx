@@ -5,17 +5,18 @@ import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { useSmoothScroll } from "@/hooks/use-smooth-scroll";
 
 export const navItems = [
-  { name: "PRODUCT", href: "#" },
-  // { name: "CERTIFICATE", href: "#" },
-  { name: "EQUIPMENT", href: "#" },
-  { name: "ABOUT US", href: "#" },
-  { name: "CONTACT US", href: "#" },
+  { name: "PRODUCT", href: "#product" },
+  { name: "GALLERY", href: "#gallery" },
+  { name: "ABOUT US", href: "#about" },
+  { name: "CONTACT US", href: "#contact" },
 ];
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = React.useState(false);
+  useSmoothScroll();
 
   return (
     <nav className="bg-[#002B5B] py-4 px-4 w-full top-0 z-50">
@@ -26,7 +27,7 @@ export default function Navbar() {
             <Link
               key={item.name}
               href={item.href}
-              className="text-white hover:text-white/80 transition-colors font-medium"
+              className="text-white hover:text-white/80 transition-colors font-medium border-b-2 border-transparent hover:border-white"
             >
               {item.name}
             </Link>

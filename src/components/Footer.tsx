@@ -4,7 +4,10 @@ import { Facebook, Globe, Phone } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="relative w-full bg-[#002B5B] text-white py-16 overflow-hidden">
+    <footer
+      className="relative w-full bg-[#002B5B] text-white py-16 overflow-hidden"
+      id="contact"
+    >
       {/* Background overlay */}
       <div
         className="absolute inset-0 bg-gradient-to-b from-[#002B5B]/80 to-[#002B5B]"

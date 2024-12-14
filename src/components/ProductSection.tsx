@@ -6,6 +6,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { MoveRight } from "lucide-react";
 import { ProductModal } from "./ProductModal";
+import Link from "next/link";
+import { FaWhatsapp } from "react-icons/fa";
 
 const products = [
   {
@@ -72,7 +74,7 @@ export default function ProductSection() {
   >(null);
 
   return (
-    <section className="w-full bg-[#F1F5FF] py-16">
+    <section className="w-full bg-[#F1F5FF] py-16" id="product">
       <div className="max-w-6xl mx-auto px-4">
         <h2 className="text-[#002B5B] text-2xl font-bold mb-8">PRODUCT</h2>
 
@@ -97,13 +99,30 @@ export default function ProductSection() {
                 <p className="text-gray-600 mb-6 text-sm line-clamp-3">
                   {product.description}
                 </p>
-                <Button
-                  className="bg-[#002B5B] hover:bg-[#002B5B]/90 text-white group"
-                  onClick={() => setSelectedProduct(product)}
-                >
-                  Click For More Info
-                  <MoveRight className="ml-2 h-4 w-4 group-hover:ml-3 transition-all" />
-                </Button>
+                <div className="flex gap-2 w-full">
+                  <Button
+                    className="flex-1 bg-[#002B5B] hover:bg-[#002B5B]/90 text-white group"
+                    onClick={() => setSelectedProduct(product)}
+                  >
+                    More Info
+                    <MoveRight className="ml-2 h-4 w-4 group-hover:ml-3 transition-all" />
+                  </Button>
+                  <Link
+                    href={`https://wa.me/2348061719533?text=${encodeURIComponent(
+                      `Hi, I'd like more information about the ${product.title}.`
+                    )}`}
+                    passHref
+                    legacyBehavior
+                    target="_blank"
+                  >
+                    <Button
+                      className="bg-[#25D366] hover:bg-[#25D366]/90 text-white"
+                      rel="noopener noreferrer"
+                    >
+                      <FaWhatsapp className="h-5 w-5" />
+                    </Button>
+                  </Link>
+                </div>
               </CardContent>
             </Card>
           ))}

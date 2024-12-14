@@ -4,12 +4,13 @@ import { Download } from "lucide-react";
 
 export default function WhoWeAre() {
   return (
-    <section className="w-full py-16 px-4">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-[#002B5B] text-2xl font-bold mb-12">WHO WE ARE</h2>
-
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
+    <section className="w-full" id="about">
+      <div className="grid lg:grid-cols-2 gap-12 items-start min-h-screen border-b">
+        <div className="lg:max-w-xl flex ml-auto my-auto pl-10 min-h-screen items-center">
           <div className="space-y-12">
+            <h2 className="text-[#002B5B] text-2xl font-bold mb-12">
+              WHO WE ARE
+            </h2>
             <div>
               <h3 className="text-2xl font-bold mb-4">VISION</h3>
               <p className="text-gray-800 leading-relaxed">
@@ -20,7 +21,6 @@ export default function WhoWeAre() {
                 provider in modern weighing metrology.
               </p>
             </div>
-
             <div>
               <h3 className="text-2xl font-bold mb-4">PRISM</h3>
               <p className="text-gray-800 leading-relaxed">
@@ -33,7 +33,6 @@ export default function WhoWeAre() {
                 to work with stakeholders to ensure their needs are met
               </p>
             </div>
-
             <Link
               download={"others/brochure.pdf"}
               href="/others/brochure.pdf"
@@ -43,15 +42,15 @@ export default function WhoWeAre() {
               Download Brochure
             </Link>
           </div>
+        </div>
 
-          <div className="relative w-full h-[500px] lg:h-[600px]">
-            <Image
-              src="/images/truck-on-weigh-bridge.jpeg"
-              alt="Industrial weighing facility"
-              fill
-              className="object-cover rounded-lg"
-            />
-          </div>
+        <div className="relative w-full h-[500px] lg:h-screen">
+          <Image
+            src="/weigh-bridge21.jpg"
+            alt="Industrial weighing facility"
+            fill
+            className="object-cover"
+          />
         </div>
       </div>
     </section>

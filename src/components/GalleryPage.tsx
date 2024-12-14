@@ -2,115 +2,204 @@
 
 import * as React from "react";
 import Image from "next/image";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 import { ImageSlideshow } from "./ImageSlideshow";
 import { Button } from "./ui/button";
+import { Pagination } from "./pagination";
 
-const images = [
+interface ImageItem {
+  id: number;
+  src: string;
+  alt: string;
+  category: string[];
+}
+export const images: ImageItem[] = [
   {
-    src: "/images/truck-on-weigh-bridge.jpeg",
-    alt: "Digital display unit",
-    category: "equipment",
+    id: 1,
+    src: "/animal-scale1.jpg",
+    alt: "Animal Scale 1",
+    category: ["scales", "agriculture"],
   },
   {
-    src: "/images/truck-on-weigh-bridge.jpeg",
-    alt: "Load cell equipment",
-    category: "equipment",
+    id: 2,
+    src: "/animal-scale2.jpg",
+    alt: "Animal Scale 2",
+    category: ["scales", "agriculture"],
   },
   {
-    src: "/images/truck-on-weigh-bridge.jpeg",
-    alt: "Packaging machinery",
-    category: "equipment",
+    id: 3,
+    src: "/electric-stacker1.jpg",
+    alt: "Electric Stacker 1",
+    category: ["equipment", "industrial"],
   },
   {
-    src: "/images/truck-on-weigh-bridge.jpeg",
-    alt: "Weighbridge installation",
-    category: "equipment",
+    id: 4,
+    src: "/electric-stacker2.jpg",
+    alt: "Electric Stacker 2",
+    category: ["equipment", "industrial"],
   },
   {
-    src: "/images/truck-on-weigh-bridge.jpeg",
-    alt: "Animal weighing cage",
-    category: "equipment",
+    id: 5,
+    src: "/electronic-load-cell1.jpg",
+    alt: "Electronic Load Cell 1",
+    category: ["equipment", "industrial", "load-cells"],
   },
   {
-    src: "/images/truck-on-weigh-bridge.jpeg",
-    alt: "Platform details",
-    category: "equipment",
+    id: 6,
+    src: "/electronic-load-cell2.jpg",
+    alt: "Electronic Load Cell 2",
+    category: ["equipment", "industrial", "load-cells"],
   },
   {
-    src: "/images/truck-on-weigh-bridge.jpeg",
-    alt: "Standing scale",
-    category: "equipment",
+    id: 7,
+    src: "/electronic-load-cell3.jpg",
+    alt: "Electronic Load Cell 3",
+    category: ["equipment", "industrial", "load-cells"],
   },
   {
-    src: "/images/truck-on-weigh-bridge.jpeg",
-    alt: "Maintenance work",
-    category: "team",
+    id: 8,
+    src: "/electronic-load-cell4.jpg",
+    alt: "Electronic Load Cell 4",
+    category: ["equipment", "industrial", "load-cells"],
   },
   {
-    src: "/images/truck-on-weigh-bridge.jpeg",
-    alt: "Weighbridge installation site",
-    category: "equipment",
+    id: 9,
+    src: "/floor-scale1.jpg",
+    alt: "Floor Scale 1",
+    category: ["scales", "industrial"],
   },
   {
-    src: "/images/truck-on-weigh-bridge.jpeg",
-    alt: "Platform details",
-    category: "equipment",
+    id: 10,
+    src: "/floor-scale2.jpg",
+    alt: "Floor Scale 2",
+    category: ["scales", "industrial"],
   },
   {
-    src: "/images/truck-on-weigh-bridge.jpeg",
-    alt: "Standing scale",
-    category: "equipment",
+    id: 11,
+    src: "/floor-scale3.jpg",
+    alt: "Floor Scale 3",
+    category: ["scales", "industrial"],
   },
   {
-    src: "/images/truck-on-weigh-bridge.jpeg",
-    alt: "Maintenance work",
-    category: "team",
+    id: 12,
+    src: "/floor-scale4.jpg",
+    alt: "Floor Scale 4",
+    category: ["scales", "industrial"],
   },
   {
-    src: "/images/truck-on-weigh-bridge.jpeg",
-    alt: "Weighbridge installation site",
-    category: "equipment",
+    id: 13,
+    src: "/led-score-board.jpg",
+    alt: "LED Score Board",
+    category: ["equipment", "display"],
   },
   {
-    src: "/images/truck-on-weigh-bridge.jpeg",
-    alt: "Platform details",
-    category: "equipment",
+    id: 14,
+    src: "/load-cell.jpg",
+    alt: "Load Cell",
+    category: ["equipment", "industrial", "load-cells"],
   },
   {
-    src: "/images/truck-on-weigh-bridge.jpeg",
-    alt: "Standing scale",
-    category: "equipment",
+    id: 15,
+    src: "/micro-balance1.jpg",
+    alt: "Micro Balance 1",
+    category: ["scales", "laboratory"],
   },
   {
-    src: "/images/truck-on-weigh-bridge.jpeg",
-    alt: "Maintenance work",
-    category: "team",
+    id: 16,
+    src: "/micro-balance2.jpg",
+    alt: "Micro Balance 2",
+    category: ["scales", "laboratory"],
   },
   {
-    src: "/images/truck-on-weigh-bridge.jpeg",
-    alt: "Weighbridge installation site",
-    category: "equipment",
+    id: 17,
+    src: "/micro-balance3.jpg",
+    alt: "Micro Balance 3",
+    category: ["scales", "laboratory"],
   },
+  {
+    id: 18,
+    src: "/platform-scale1.jpg",
+    alt: "Platform Scale 1",
+    category: ["scales", "industrial"],
+  },
+  {
+    id: 19,
+    src: "/platform-scale2.jpg",
+    alt: "Platform Scale 2",
+    category: ["scales", "industrial"],
+  },
+  {
+    id: 20,
+    src: "/platform-scale3.jpg",
+    alt: "Platform Scale 3",
+    category: ["scales", "industrial"],
+  },
+  {
+    id: 21,
+    src: "/setup.jpg",
+    alt: "Setup",
+    category: ["equipment", "installation"],
+  },
+  ...Array.from({ length: 41 }, (_, i) => ({
+    id: 22 + i,
+    src: `/staffs${i + 1}.jpg`,
+    alt: `Staff ${i + 1}`,
+    category: ["staffs", "company"],
+  })),
+  ...Array.from({ length: 9 }, (_, i) => ({
+    id: 63 + i,
+    src: `/truck-on-weigh-bridge${i + 1}.jpg`,
+    alt: `Truck on Weigh Bridge ${i + 1}`,
+    category: ["scales", "transportation", "weigh-bridge"],
+  })),
+  ...Array.from({ length: 46 }, (_, i) => ({
+    id: 72 + i,
+    src: `/weigh-bridge${i + 1}.jpg`,
+    alt: `Weigh Bridge ${i + 1}`,
+    category: ["scales", "industrial", "weigh-bridge"],
+  })),
+  ...Array.from({ length: 5 }, (_, i) => ({
+    id: 118 + i,
+    src: `/weighing-indicator${i + 1}.jpg`,
+    alt: `Weighing Indicator ${i + 1}`,
+    category: ["equipment", "display"],
+  })),
+];
+
+const allCategories = [
+  "equipment",
+  "display",
+  "accessories",
+  "staffs",
+  "weigh-bridge",
+  "scales",
+  "industrial",
 ];
 
 export default function GalleryPage() {
   const [selectedImage, setSelectedImage] = React.useState<number | null>(null);
-  const [category, setCategory] = React.useState<string>("all");
+  const [selectedCategories, setSelectedCategories] = React.useState<string[]>(
+    []
+  );
+
   const [currentPage, setCurrentPage] = React.useState(1);
   const imagesPerPage = 9;
 
+  const toggleCategory = (category: string) => {
+    setSelectedCategories((prev) =>
+      prev.includes(category)
+        ? prev.filter((c) => c !== category)
+        : [...prev, category]
+    );
+    setCurrentPage(1);
+  };
+
   const filteredImages = React.useMemo(() => {
-    return category === "all"
+    return selectedCategories.length === 0
       ? images
-      : images.filter((img) => img.category === category);
-  }, [category]);
+      : images.filter((img) =>
+          img.category.some((cat) => selectedCategories.includes(cat))
+        );
+  }, [selectedCategories]);
 
   const totalPages = Math.ceil(filteredImages.length / imagesPerPage);
   const currentImages = filteredImages.slice(
@@ -119,41 +208,25 @@ export default function GalleryPage() {
   );
 
   return (
-    <div className="w-full py-16 px-4">
+    <div className="w-full py-16 px-4" id="gallery">
       <div className="max-w-6xl mx-auto">
-        <div className="flex justify-between items-center mb-8">
+        <div className="flex flex-col lg:flex-row justify-between items-center mb-8 gap-3">
           <h2 className="text-[#002B5B] text-2xl font-bold">
             GALLERY & EQUIPMENTS
           </h2>
-          <div className="flex gap-4">
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="outline" className="bg-[#F1F5FF]">
-                  Equipment
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent>
-                <DropdownMenuItem onClick={() => setCategory("all")}>
-                  All
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setCategory("equipment")}>
-                  Equipment
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="outline" className="bg-[#F1F5FF]">
-                  Team
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent>
-                <DropdownMenuItem onClick={() => setCategory("team")}>
-                  Team
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
+          <div className="flex gap-1 flex-wrap justify-center ">
+            {allCategories.map((category) => (
+              <Button
+                key={category}
+                variant={
+                  selectedCategories.includes(category) ? "default" : "outline"
+                }
+                onClick={() => toggleCategory(category)}
+                className="capitalize"
+              >
+                {category}
+              </Button>
+            ))}
           </div>
         </div>
 
@@ -175,36 +248,11 @@ export default function GalleryPage() {
         </div>
 
         {totalPages > 1 && (
-          <div className="flex justify-center items-center gap-2 mt-8">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
-              disabled={currentPage === 1}
-            >
-              <ChevronLeft className="h-4 w-4" />
-            </Button>
-            {Array.from({ length: totalPages }, (_, i) => (
-              <Button
-                key={i + 1}
-                variant={currentPage === i + 1 ? "default" : "outline"}
-                className={currentPage === i + 1 ? "bg-[#002B5B]" : ""}
-                onClick={() => setCurrentPage(i + 1)}
-              >
-                {i + 1}
-              </Button>
-            ))}
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() =>
-                setCurrentPage((prev) => Math.min(prev + 1, totalPages))
-              }
-              disabled={currentPage === totalPages}
-            >
-              <ChevronRight className="h-4 w-4" />
-            </Button>
-          </div>
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            setCurrentPage={setCurrentPage}
+          />
         )}
 
         {selectedImage !== null && (
