@@ -5,7 +5,7 @@ export default function HeroSection() {
   return (
     <div className="w-full min-h-[calc(100svh-130px)] bg-white" id="hero">
       <div className="w-full grid lg:grid-cols-2 items-center">
-        <div className="flex h-[50svh] lg:h-[calc(100svh-100px)] items-start justify-center flex-col max-w-xl gap-6 px-6 lg:order-2">
+        <div className="flex min-h-[50svh] py-5 lg:h-[calc(100svh-100px)] items-start justify-center flex-col max-w-xl gap-6 px-6 lg:order-2">
           <h1 className="text-[#002B5B] text-3xl md:text-4xl font-bold leading-tight">
             KUNMSTECH WEIGH & AUTOMATION LTD
           </h1>
