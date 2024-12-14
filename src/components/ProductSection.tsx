@@ -9,24 +9,32 @@ import { ProductModal } from "./ProductModal";
 
 const products = [
   {
-    title: "WEIGHBRIDGE & PLATFORM SCALE",
-    image: "/weigh-bridge.jpg",
+    title: "WEIGHBRIDGE",
+    image: "/truck-on-weigh-bridge4.webp",
     description:
-      "Accurate and durable solutions for measuring vehicle and goods weight, ensuring efficiency in logistics, manufacturing, and agriculture.",
+      "Accurate and durable solutions for measuring vehicle weight, ensuring efficiency in logistics and compliance with weight regulations.",
     detailedDescription:
-      "Weighbridge and platform scales are essential tools for accurate weight measurement in industrial, commercial, and agricultural applications. Weighbridges are large-scale systems designed for vehicles, ensuring efficient load management and compliance with weight regulations. Platform scales, on the other hand, provide precise measurements for goods of various sizes, offering durability and versatility for warehouses, manufacturing plants, and logistics. Both solutions enhance operational efficiency and accuracy in weight monitoring.",
+      "Weighbridges are large-scale systems designed specifically for vehicles, providing accurate weight measurement to ensure efficient load management and compliance with weight regulations. These tools are indispensable for logistics and manufacturing industries, enabling streamlined operations and precise weight monitoring for heavy-duty applications.",
   },
   {
-    title: "INDICATOR, PLATFORM, FLOORSCALE",
-    image: "/images/truck-on-weigh-bridge.jpeg",
+    title: "PLATFORM SCALE",
+    image: "/platform-scale2.jpg",
+    description:
+      "Versatile and precise solutions for measuring goods of various sizes, enhancing efficiency in warehouses and manufacturing.",
+    detailedDescription:
+      "Platform scales provide accurate and durable weight measurement solutions for a wide range of goods. Designed for industrial, commercial, and agricultural applications, they are ideal for warehouses, manufacturing plants, and logistics operations. With their robustness and versatility, platform scales contribute to operational accuracy and efficiency in diverse settings.",
+  },
+  {
+    title: "FLOOR SCALE AND INDICATOR",
+    image: "/floor-scale4.jpg",
     description:
       "Durable solutions for precise weight measurement in industrial and commercial use. Designed for accuracy, efficiency, and heavy-duty performance.",
     detailedDescription:
       "Our indicators, platforms, and floor scales provide comprehensive weighing solutions for various industrial and commercial applications. These systems combine advanced technology with robust construction to ensure accurate measurements and long-term reliability.",
   },
   {
-    title: "LOADCELL AND ACCESSORIES",
-    image: "/images/truck-on-weigh-bridge.jpeg",
+    title: "LOAD CELL AND ACCESSORIES",
+    image: "/load-cell.jpg",
     description:
       "High-precision load cells and accessories designed for accurate weight measurement, durability, and seamless technical support for industrial systems.",
     detailedDescription:
@@ -34,7 +42,7 @@ const products = [
   },
   {
     title: "LPG FILLING SCALES",
-    image: "/images/truck-on-weigh-bridge.jpeg",
+    image: "/lpg-tank-bulktail.jpg",
     description:
       "Ensure accurate LPG measurements during filling. They enhance safety, reduce waste, and comply with industry standards often featuring digital displays and automatic shutoffs.",
     detailedDescription:
@@ -42,20 +50,20 @@ const products = [
   },
   {
     title: "MANUAL & ELECTRONIC STACKERS",
-    image: "/images/truck-on-weigh-bridge.jpeg",
+    image: "/electric-stacker2.jpg",
     description:
       "Manual and electronic stackers are used to lift and move goods. Manual stackers are hand-operated for light loads, while electronic stackers are powered for heavier loads and greater efficiency.",
     detailedDescription:
       "Our range of manual and electronic stackers provides versatile solutions for material handling needs. From lightweight manual options to powerful electronic systems, each stacker is designed to maximize efficiency and safety in your operations.",
   },
-  {
-    title: "MACHINERY AND EQUIPMENT",
-    image: "/images/truck-on-weigh-bridge.jpeg",
-    description:
-      "Tools and machines used for industrial tasks like lifting, loading, and manufacturing, boosting efficiency and safety in sectors such as construction and logistics.",
-    detailedDescription:
-      "We offer a comprehensive range of industrial machinery and equipment designed to enhance productivity and safety in various sectors. Our solutions are built to meet the demanding requirements of modern industrial operations.",
-  },
+  // {
+  //   title: "MACHINERY AND EQUIPMENT",
+  //   image: "/images/truck-on-weigh-bridge.jpeg",
+  //   description:
+  //     "Tools and machines used for industrial tasks like lifting, loading, and manufacturing, boosting efficiency and safety in sectors such as construction and logistics.",
+  //   detailedDescription:
+  //     "We offer a comprehensive range of industrial machinery and equipment designed to enhance productivity and safety in various sectors. Our solutions are built to meet the demanding requirements of modern industrial operations.",
+  // },
 ];
 
 export default function ProductSection() {
@@ -72,29 +80,29 @@ export default function ProductSection() {
           {products.map((product) => (
             <Card
               key={product.title}
-              className="bg-white border-none shadow-sm"
+              className="bg-white shadow-sm hover:scale-105 transition-all"
             >
               <CardContent className="p-6 flex flex-col items-center text-center">
                 <h3 className="text-xl font-bold mb-4 line-clamp-2 px-5">
                   {product.title}
                 </h3>
-                <div className="relative w-full h-[200px] mb-4">
+                <div className="relative w-full aspect-square mb-4 shadow border rounded-lg overflow-clip">
                   <Image
                     src={product.image}
                     alt={product.title}
                     fill
-                    className="object-cover rounded-md"
+                    className="object-cover"
                   />
                 </div>
                 <p className="text-gray-600 mb-6 text-sm line-clamp-3">
                   {product.description}
                 </p>
                 <Button
-                  className="bg-[#002B5B] hover:bg-[#002B5B]/90 text-white"
+                  className="bg-[#002B5B] hover:bg-[#002B5B]/90 text-white group"
                   onClick={() => setSelectedProduct(product)}
                 >
                   Click For More Info
-                  <MoveRight className="ml-2 h-4 w-4" />
+                  <MoveRight className="ml-2 h-4 w-4 group-hover:ml-3 transition-all" />
                 </Button>
               </CardContent>
             </Card>

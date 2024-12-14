@@ -35,12 +35,12 @@ export default function WhoWeAre() {
             </div>
 
             <Link
-              download={"Kunmstech_Company_Brochure.pdf"}
-              href="/Kunmstech_Company_Brochure.pdf"
-              className="bg-[#002B5B] hover:bg-[#002B5B]/90 text-white gap-2 flex"
+              download={"others/brochure.pdf"}
+              href="/others/brochure.pdf"
+              className="bg-[#002B5B] hover:bg-[#002B5B]/90 text-white gap-1 w-48 px-2 flex items-center justify-center py-2 rounded-lg"
             >
-              <Download className="h-4 w-4" />
-              Download Company Brochure
+              <Download className="shrink-0 h-4 w-4" />
+              Download Brochure
             </Link>
           </div>
 
