@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { FloatingContactButtons } from "@/components/floating-contact-button";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -34,6 +35,10 @@ export default function RootLayout({
         <Header />
         {children}
         <Footer />
+        <FloatingContactButtons
+          phoneNumber="+2348124196160"
+          whatsappNumber="+2348124196160"
+        />
       </body>
     </html>
   );

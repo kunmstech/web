@@ -108,7 +108,7 @@ export default function ProductSection() {
                     <MoveRight className="ml-2 h-4 w-4 group-hover:ml-3 transition-all" />
                   </Button>
                   <Link
-                    href={`https://wa.me/2348061719533?text=${encodeURIComponent(
+                    href={`https://wa.me/2348124196160?text=${encodeURIComponent(
                       `Hi, I'd like more information about the ${product.title}.`
                     )}`}
                     passHref
