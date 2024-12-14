@@ -6,7 +6,7 @@ import WhoWeAre from "@/components/WhoWeAre";
 export default function Home() {
   return (
     <>
-      <HeroSection />;
+      <HeroSection />
       <ProductSection />
       <WhoWeAre />
       <GalleryPage />

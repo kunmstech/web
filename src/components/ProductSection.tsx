@@ -10,7 +10,7 @@ import { ProductModal } from "./ProductModal";
 const products = [
   {
     title: "WEIGHBRIDGE & PLATFORM SCALE",
-    image: "/images/truck-on-weigh-bridge.jpeg",
+    image: "/weigh-bridge.jpg",
     description:
       "Accurate and durable solutions for measuring vehicle and goods weight, ensuring efficiency in logistics, manufacturing, and agriculture.",
     detailedDescription:
@@ -75,7 +75,7 @@ export default function ProductSection() {
               className="bg-white border-none shadow-sm"
             >
               <CardContent className="p-6 flex flex-col items-center text-center">
-                <h3 className="text-lg font-bold mb-4 line-clamp-1">
+                <h3 className="text-xl font-bold mb-4 line-clamp-2 px-5">
                   {product.title}
                 </h3>
                 <div className="relative w-full h-[200px] mb-4">
